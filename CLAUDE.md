@@ -59,3 +59,4 @@ Source of truth:
 - Never mark a `human` gate task as done.
 - Never invent requirements. Ambiguity goes to `docs/decisions.md` as an open question and you STOP.
 - Never commit secrets or tokens.
+- Never call write tools on Figma or Jira (create, edit, transition, comment, write to canvas). Both are read-only sources.

@@ -1,0 +1,38 @@
+{
+  "_description": "Atlassian MCP (Jira): allow read tools, block write and delete tools. Merge both arrays into .claude/settings.json permissions.",
+  "permissions": {
+    "allow": [
+      "mcp__atlassian__atlassianUserInfo",
+      "mcp__atlassian__getAccessibleAtlassianResources",
+      "mcp__atlassian__listJiraProjects",
+      "mcp__atlassian__getJiraIssue",
+      "mcp__atlassian__searchJiraIssuesUsingJql",
+      "mcp__atlassian__listJiraIssueComments",
+      "mcp__atlassian__listJiraIssueRemoteIssueLinks",
+      "mcp__atlassian__downloadJiraIssueAttachment"
+    ],
+    "deny": [
+      "mcp__atlassian__createJiraIssue",
+      "mcp__atlassian__editJiraIssue",
+      "mcp__atlassian__transitionJiraIssue",
+      "mcp__atlassian__addOrEditJiraIssueComment",
+      "mcp__atlassian__addOrEditJiraIssueWorklog",
+      "mcp__atlassian__createJiraIssueLink",
+      "mcp__atlassian__manageJiraProjectVersion",
+      "mcp__atlassian__manageJiraProjectVersionRelatedWork",
+      "mcp__atlassian__manageJiraSprint",
+      "mcp__atlassian__createJiraBoard",
+      "mcp__atlassian__watchJiraIssue",
+      "mcp__atlassian__uploadAttachmentToJiraIssue",
+      "mcp__atlassian__editJiraEntityProperty",
+      "mcp__atlassian__createJiraIssueRemoteIssueLink",
+      "mcp__atlassian__convertJiraIssueHierarchy",
+      "mcp__atlassian__deleteJiraIssue",
+      "mcp__atlassian__deleteJiraComment",
+      "mcp__atlassian__deleteJiraIssueAttachment",
+      "mcp__atlassian__createJiraProject",
+      "mcp__atlassian__updateJiraProject",
+      "mcp__atlassian__updateJiraScreen"
+    ]
+  }
+}

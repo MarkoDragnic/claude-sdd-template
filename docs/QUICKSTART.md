@@ -6,10 +6,32 @@ Full walkthrough: `docs/WORKFLOW-EXAMPLE.md`.
 
 ## One-time setup
 1. Open a terminal in this folder and run `claude`.
-2. Approve the project MCP servers if asked (figma, atlassian, playwright).
+2. Claude asks once to enable the project MCP servers from `.mcp.json` (figma, atlassian, playwright). Approve the ones you use.
 3. Run `/mcp`, authenticate `figma`, then `atlassian` (only if you use Jira), finishing each login in the browser.
 4. Run `/mcp` again and check the servers show connected.
-5. Spec: put a PDF/markdown in `docs/spec/`, OR set the Jira source in CLAUDE.md and run `/import-jira ABC-12`. Fill the `{{...}}` placeholders in CLAUDE.md (project name, Figma URL). The stack is filled later, see Populating the tech stack below.
+5. Enable tool permissions for the sources you use, see Enabling tool permissions below.
+6. Spec: put a PDF/markdown in `docs/spec/`, OR set the Jira source in CLAUDE.md and run `/import-jira ABC-12`. Fill the `{{...}}` placeholders in CLAUDE.md (project name, Figma URL). The stack is filled later, see Populating the tech stack below.
+
+## Enabling tool permissions
+
+`.claude/settings.json` ships with no tool permissions, only rules hiding the human-only docs from Claude.
+Without permissions Claude asks before every Figma, Jira and Playwright call, which interrupts every task.
+
+Ready-made rules are in `.claude/permissions/`. Each file allows the read tools and blocks the write tools:
+
+| File | Enable when |
+|------|-------------|
+| `figma.json` | Always (designs come from Figma) |
+| `playwright.json` | Always (visual and browser validation) |
+| `jira.json` | Only if the spec comes from Jira |
+
+Enable what you use, one of two ways:
+- **Ask Claude:** `merge .claude/permissions/figma.json and .claude/permissions/playwright.json into .claude/settings.json`. Claude asks you to approve the edit.
+- **Manually:** copy the `allow` and `deny` entries from each file into the matching arrays in `.claude/settings.json`.
+
+Restart Claude Code afterwards so the rules load.
+For rules only on your machine, merge into `.claude/settings.local.json` instead (gitignored).
+Never allow a whole server (`mcp__figma`, `mcp__atlassian`): it includes write tools.
 
 ## Populating the tech stack
 

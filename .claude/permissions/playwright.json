@@ -1,0 +1,9 @@
+{
+  "_description": "Playwright MCP: allow all tools (local browser for validation). Merge into .claude/settings.json permissions.",
+  "permissions": {
+    "allow": [
+      "mcp__playwright"
+    ],
+    "deny": []
+  }
+}

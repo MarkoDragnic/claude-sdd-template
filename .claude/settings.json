@@ -1,11 +1,6 @@
 {
-  "enableAllProjectMcpServers": true,
   "permissions": {
-    "allow": [
-      "mcp__figma",
-      "mcp__atlassian",
-      "mcp__playwright"
-    ],
+    "allow": [],
     "deny": [
       "Read(./docs/STRUCTURE.md)",
       "Read(./docs/WORKFLOW-EXAMPLE.md)",

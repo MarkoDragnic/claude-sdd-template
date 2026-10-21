@@ -25,7 +25,7 @@ YOU:
 > claude
 ```
 
-4. If Claude asks to enable the project MCP servers (figma, atlassian, playwright), answer Yes.
+4. Claude asks to enable the project MCP servers (figma, atlassian, playwright). Approve the ones you use.
 5. Check the servers:
 
 ```
@@ -37,6 +37,16 @@ YOU:
 
 YOU: select `figma`, choose Authenticate, approve in the browser. Same for `atlassian` if you use Jira (skip it otherwise). Run `/mcp` again to confirm.
 
+Enable tool permissions so Claude does not ask before every call:
+
+```
+> merge .claude/permissions/figma.json, .claude/permissions/playwright.json
+  and .claude/permissions/jira.json into .claude/settings.json
+```
+
+Approve the edit, then restart Claude Code (`/exit`, then `claude`). Skip `jira.json` if your spec is a PDF.
+Read tools now run without prompts, write tools are blocked.
+
 6. Jira only, freeze the spec:
 
 ```
@@ -46,10 +56,11 @@ YOU: select `figma`, choose Authenticate, approve in the browser. Same for `atla
 ```
 Exported 14 issues to docs/spec/jira-ROOM-1.md
 Figma links found: 3 (ROOM-4, ROOM-7, ROOM-9)
-Unreadable: 2 image attachments on ROOM-5
+Attachments downloaded: 3 (docs/spec/attachments/)
+Unreadable: none
 ```
 
-YOU: open the file, check nothing important is missing (the unreadable images especially). From here on Claude works from this file, never live Jira.
+YOU: open the file, check nothing important is missing, and check the attachment descriptions match the images. From here on Claude works from this file, never live Jira.
 
 Start a stopwatch. That is your baseline time.
 

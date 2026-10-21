@@ -12,7 +12,8 @@ Use the Atlassian MCP. READ ONLY: never create, edit, transition or comment on J
    - One section per issue, ordered by rank: key, type, summary, status, description, acceptance criteria (verbatim), linked issues, attachment names, and comments that change or clarify requirements.
    - Figma links found anywhere in the issues, listed with the issue key they came from.
 3. Keep the wording verbatim. Do not summarise, merge or interpret requirements.
-4. List anything you could not read (permissions, attachments, images) at the end of the file.
-5. Report: number of issues exported, Figma links found, unreadable items. STOP.
+4. Download image and document attachments that carry requirements (mockups, screenshots, flows) to `docs/spec/attachments/<ISSUE-KEY>/`, view them, and describe what they show in the issue section with a link to the file.
+5. List anything you could not read or download at the end of the file.
+6. Report: number of issues exported, Figma links found, attachments downloaded, unreadable items. STOP.
 
 From now on `docs/spec/` is the source of truth, not live Jira. Re-run this command only when I ask to refresh the spec.

@@ -26,9 +26,31 @@ Everything is project scoped. No global Claude config is used or changed.
 2. Fill the `{{...}}` placeholders in `CLAUDE.md`: name, summary, Figma URL, Jira source (optional), viewports. Leave Stack for later, see Populating the tech stack below.
 3. Fill the two Figma node IDs in `.claude/tasks/000-foundation.md`.
 4. Add the spec to `docs/spec/`, or plan to run `/import-jira <EPIC-KEY>`.
-5. Run `claude` in the folder, then `/mcp` and authenticate `figma` (and `atlassian` if you use Jira).
+5. Run `claude` in the folder, approve the project MCP servers when asked, then `/mcp` and authenticate `figma` (and `atlassian` if you use Jira).
+6. Enable tool permissions for the sources you use, see Enabling tool permissions below.
 
 Windows native: Playwright runs through `cmd /c npx`. On WSL, macOS or Linux change it to `"command": "npx"` in `.mcp.json`.
+
+## Enabling tool permissions
+
+`.claude/settings.json` ships with no tool permissions, only rules hiding the human-only docs from Claude.
+Without permissions Claude asks before every Figma, Jira and Playwright call, which interrupts every task.
+
+Ready-made rules are in `.claude/permissions/`. Each file allows the read tools and blocks the write tools:
+
+| File | Enable when |
+|------|-------------|
+| `figma.json` | Always (designs come from Figma) |
+| `playwright.json` | Always (visual and browser validation) |
+| `jira.json` | Only if the spec comes from Jira |
+
+Enable what you use, one of two ways:
+- **Ask Claude:** `merge .claude/permissions/figma.json and .claude/permissions/playwright.json into .claude/settings.json`. Claude asks you to approve the edit.
+- **Manually:** copy the `allow` and `deny` entries from each file into the matching arrays in `.claude/settings.json`.
+
+Restart Claude Code afterwards so the rules load.
+For rules only on your machine, merge into `.claude/settings.local.json` instead (gitignored).
+Never allow a whole server (`mcp__figma`, `mcp__atlassian`): it includes write tools.
 
 ## Populating the tech stack
 
