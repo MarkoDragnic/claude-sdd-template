@@ -1,0 +1,33 @@
+# Stack-agnostic base. Task 000 appends the entries for the chosen stack
+# (dependencies, build output, test reports, caches).
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Claude personal settings (project settings.json stays committed)
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Playwright MCP tool output (temporary screenshots and traces)
+.playwright-mcp/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Validation evidence is committed by default. Uncomment to ignore it.
+# .claude/tasks/evidence/
