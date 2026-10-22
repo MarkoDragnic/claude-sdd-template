@@ -66,6 +66,32 @@ Start a stopwatch. That is your baseline time.
 
 ---
 
+## Phase 0b: Figma only, no spec (about 30 min)
+
+Skip this if you got a spec or Jira tickets.
+
+```
+> /clear
+> /write-spec https://www.figma.com/design/abc123/Room-Booking
+```
+
+```
+Screens found: 7 (4 desktop, 3 mobile), components page and 31 variables noted
+Screenshots saved: docs/figma/ (7 files), inventory: docs/figma/inventory.md
+Written: docs/spec/brief.md, docs/spec/stories.md (US-01 to US-05)
+Assumptions: 6, open questions: 8 (docs/decisions.md)
+```
+
+YOU: this is a human gate, the most important review of the whole run.
+- Read `brief.md`: is the product understood correctly?
+- Read every story: acceptance criteria, states, out of scope. Edit the files directly.
+- Every ASSUMPTION: keep it, change it, or delete it.
+- Answer the open questions in `docs/decisions.md`.
+
+The reviewed brief and stories are now the spec. Continue with Phase 1, which finds only what is still unclear.
+
+---
+
 ## Phase 1: Clarify the spec (about 20 to 30 min)
 
 ```

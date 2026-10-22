@@ -5,6 +5,8 @@
 
 Source of truth:
 - Spec: `docs/spec/` (requirements). If code and spec disagree, the spec wins. If the spec is unclear, STOP and ask.
+- No spec given: `/write-spec` drafts `docs/spec/brief.md` and `docs/spec/stories.md` from Figma. After human review they are the spec.
+- Saved Figma screenshots and inventory: `docs/figma/`. Reuse them, Figma calls are rate limited.
 - Jira source (optional): {{EPIC_KEY or JQL}} on {{https://yourcompany.atlassian.net}}. Imported into `docs/spec/` with `/import-jira`. Never read live Jira during tasks, never write to Jira.
 - Design: Figma file {{FIGMA_FILE_URL}}. Node IDs per screen are listed in each task.
 - Decisions made during clarification: `docs/decisions.md`

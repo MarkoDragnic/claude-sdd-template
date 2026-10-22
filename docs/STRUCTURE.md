@@ -23,7 +23,9 @@ Legend: Edit = what you must do. Template = state of the file in the clean boile
 | `permissions/jira.json` | Jira rules: 8 read tools allowed, 21 write/delete/admin tools denied | Merge only if spec comes from Jira | Keep |
 | `permissions/playwright.json` | Playwright rule: all tools allowed (local browser) | Merge into settings.json | Keep |
 | `permissions/git.json` | Git rules: status, add, commit allowed, push denied | Merge if you want a commit per finished task | Keep |
+| `templates/story.md` | User story format used by `/write-spec` | Change the format if you want | Keep |
 | `templates/commit.md` | Commit message format and rules used by `/next-task` and `/approve-task` | Change the format if you want. No type prefixes | Keep |
+| `commands/write-spec.md` | `/write-spec`: Figma only, drafts `docs/spec/brief.md` and `stories.md`, saves screenshots and inventory to `docs/figma/`, adds open questions | No | Keep |
 | `commands/import-jira.md` | `/import-jira KEY`: freeze Jira epic into `docs/spec/`, read only | No | Keep |
 | `commands/clarify-spec.md` | `/clarify-spec`: spec + Figma to open questions, no code | No | Keep |
 | `commands/set-stack.md` | `/set-stack <choices>`: your fixed choices locked, Claude suggests the rest with versions, writes Stack to CLAUDE.md after you confirm | No | Keep |
@@ -44,7 +46,7 @@ Changing a command file changes the process. Recurring failures fixed there are 
 |------|---------|------|----------|
 | `spec/` | Requirements, source of truth. PDF/markdown or `/import-jira` output | Add the spec. Never let Claude rewrite it, changes go to decisions.md | Empty, keep README |
 | `spec/README.md` | Placeholder explaining the folder | No | Keep |
-| `figma/` | Reference screenshots from Figma for visual checks | No (manual exports only if Figma MCP is unavailable) | Empty folder |
+| `figma/` | Saved Figma screenshots and `inventory.md` (frame, node ID, file). Reused to save rate-limited Figma calls | No (manual exports only if Figma MCP is unavailable) | Empty folder |
 | `decisions.md` | Open questions and answers. Unanswered question blocks its task | Answer questions. Add a row when a requirement changes | Reset to empty table |
 | `metrics.md` | Per task time, interventions, rework loops, totals | Add failed-prompt notes per task, fill Totals at the end | Reset to empty |
 | `QUICKSTART.md` | Setup steps and command order. Claude has no read access | No | Keep |

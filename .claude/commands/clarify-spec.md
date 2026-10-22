@@ -1,7 +1,10 @@
 ---
 description: Read the spec and Figma, list ambiguities and gaps before any planning
 ---
-If `docs/spec/` has no spec files (README.md does not count) and CLAUDE.md has a Jira source, tell me to run `/import-jira` first and STOP.
+If `docs/spec/` has no spec files (README.md does not count): if CLAUDE.md has a Jira source, tell me to run `/import-jira`, otherwise tell me to run `/write-spec`. Then STOP.
+
+If `docs/decisions.md` already has questions, do not repeat them. Only add what is still unclear.
+If `docs/figma/inventory.md` exists, reuse it and the saved screenshots instead of calling Figma again.
 
 Read everything in `docs/spec/` and browse the Figma file from CLAUDE.md with Figma MCP (pages, frames, variables). Do NOT write code and do NOT plan tasks yet.
 

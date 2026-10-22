@@ -8,7 +8,7 @@ Everything is project scoped. No global Claude config is used or changed.
 ## What you get
 
 - `CLAUDE.md` rules Claude follows every session: stack, conventions, gates, validation.
-- Slash commands for the whole flow: `/import-jira`, `/clarify-spec`, `/set-stack`, `/plan-tasks`, `/next-task`, `/approve-task`.
+- Slash commands for the whole flow: `/write-spec`, `/import-jira`, `/clarify-spec`, `/set-stack`, `/plan-tasks`, `/next-task`, `/approve-task`.
 - Task system in `.claude/tasks/`: index, template, foundation task.
 - MCP servers in `.mcp.json`: Figma (design data and screenshots), Atlassian (Jira import), Playwright (browser testing and screenshots).
 - Decision log and metrics in `docs/`.
@@ -25,7 +25,7 @@ Everything is project scoped. No global Claude config is used or changed.
 1. Copy this template into a new folder (or create a repo from it).
 2. Fill the `{{...}}` placeholders in `CLAUDE.md`: name, summary, Figma URL, Jira source (optional), viewports. Leave Stack for later, see Populating the tech stack below.
 3. Fill the two Figma node IDs in `.claude/tasks/000-foundation.md`.
-4. Add the spec to `docs/spec/`, or plan to run `/import-jira <EPIC-KEY>`.
+4. Spec: add it to `docs/spec/`, run `/import-jira <EPIC-KEY>`, or with Figma only run `/write-spec`.
 5. Run `claude` in the folder, approve the project MCP servers when asked, then `/mcp` and authenticate `figma` (and `atlassian` if you use Jira).
 6. Enable tool permissions for the sources you use, see Enabling tool permissions below.
 
@@ -93,6 +93,7 @@ Whatever you write here is locked: Claude will not add libraries outside it with
 ## Workflow
 
 ```
+/write-spec                  Figma only: Claude drafts brief + user stories, you review and edit
 /import-jira <EPIC-KEY>      Jira only: freeze the spec into docs/spec
 /clarify-spec                answer open questions in docs/decisions.md
 /set-stack <choices>         e.g. /set-stack node, react   Claude suggests the rest, you confirm

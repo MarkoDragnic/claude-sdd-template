@@ -10,7 +10,7 @@ Full walkthrough: `docs/WORKFLOW-EXAMPLE.md`.
 3. Run `/mcp`, authenticate `figma`, then `atlassian` (only if you use Jira), finishing each login in the browser.
 4. Run `/mcp` again and check the servers show connected.
 5. Enable tool permissions for the sources you use, see Enabling tool permissions below.
-6. Spec: put a PDF/markdown in `docs/spec/`, OR set the Jira source in CLAUDE.md and run `/import-jira ABC-12`. Fill the `{{...}}` placeholders in CLAUDE.md (project name, Figma URL). The stack is filled later, see Populating the tech stack below.
+6. Spec: put a PDF/markdown in `docs/spec/`, OR set the Jira source in CLAUDE.md and run `/import-jira ABC-12`, OR with Figma only run `/write-spec`. Fill the `{{...}}` placeholders in CLAUDE.md (project name, Figma URL). The stack is filled later, see Populating the tech stack below.
 
 ## Enabling tool permissions
 
@@ -72,7 +72,10 @@ Example of a filled section:
 Whatever you write here is locked: Claude will not add libraries outside it without asking.
 
 ## Workflow
-0. Jira only: `/import-jira <EPIC-KEY>` to freeze the spec into docs/spec.
+0. Spec source:
+   - Figma only: `/write-spec`, then review and edit `docs/spec/brief.md` and `stories.md`, answer questions in `docs/decisions.md`.
+   - Jira: `/import-jira <EPIC-KEY>` to freeze the spec into docs/spec.
+   - Given spec: already in `docs/spec/`, nothing to run.
 1. `/clarify-spec` and answer the open questions in `docs/decisions.md`.
 2. `/set-stack <your fixed choices>` (e.g. `/set-stack node, react`), review the table, confirm.
 3. `/plan-tasks` and review the outline and detailed tasks.

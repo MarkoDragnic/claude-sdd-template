@@ -9,7 +9,7 @@
 {{One sentence. What exists after this task that did not exist before.}}
 
 ## References
-- Spec: `docs/spec/{{file}}` sections {{x.y}}
+- Spec: `docs/spec/{{file}}` sections {{x.y}} or stories US-{{NN}}
 - Figma: {{frame name}} desktop node `{{node-id}}`, mobile node `{{node-id}}`
 - Decisions: `docs/decisions.md` #{{n}}
 
