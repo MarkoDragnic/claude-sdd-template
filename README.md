@@ -43,6 +43,7 @@ Ready-made rules are in `.claude/permissions/`. Each file allows the read tools 
 | `figma.json` | Always (designs come from Figma) |
 | `playwright.json` | Always (visual and browser validation) |
 | `jira.json` | Only if the spec comes from Jira |
+| `git.json` | Only if you want a commit per finished task (push stays manual) |
 
 Enable what you use, one of two ways:
 - **Ask Claude:** `merge .claude/permissions/figma.json and .claude/permissions/playwright.json into .claude/settings.json`. Claude asks you to approve the edit.

@@ -22,6 +22,8 @@ Legend: Edit = what you must do. Template = state of the file in the clean boile
 | `permissions/figma.json` | Figma rules: 8 read tools allowed, 6 write tools denied | Merge into settings.json. Update if Figma adds tools | Keep |
 | `permissions/jira.json` | Jira rules: 8 read tools allowed, 21 write/delete/admin tools denied | Merge only if spec comes from Jira | Keep |
 | `permissions/playwright.json` | Playwright rule: all tools allowed (local browser) | Merge into settings.json | Keep |
+| `permissions/git.json` | Git rules: status, add, commit allowed, push denied | Merge if you want a commit per finished task | Keep |
+| `templates/commit.md` | Commit message format and rules used by `/next-task` and `/approve-task` | Change the format if you want. No type prefixes | Keep |
 | `commands/import-jira.md` | `/import-jira KEY`: freeze Jira epic into `docs/spec/`, read only | No | Keep |
 | `commands/clarify-spec.md` | `/clarify-spec`: spec + Figma to open questions, no code | No | Keep |
 | `commands/set-stack.md` | `/set-stack <choices>`: your fixed choices locked, Claude suggests the rest with versions, writes Stack to CLAUDE.md after you confirm | No | Keep |

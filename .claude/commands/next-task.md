@@ -12,6 +12,6 @@ description: Execute the next ready task, validate it, stop at its gate
 7. Visual validation: fetch Figma node screenshots with Figma MCP, render with Playwright MCP at the same viewports, save evidence to `.claude/tasks/evidence/<task>/`, list every difference you see.
 8. Append to the task Log: what was done, decisions, validation results.
 9. Gate:
-   - `auto` and all checks green: set status `done`, write finish time, update INDEX.md, copy the task metrics row into `docs/metrics.md`.
+   - `auto` and all checks green: set status `done`, write finish time, update INDEX.md, copy the task metrics row into `docs/metrics.md`, then commit following `.claude/templates/commit.md`.
    - `human`: set status `awaiting-human`, then give me a short report: what changed, test results, visual differences, and the exact Human checkpoint list. STOP.
 10. Never start the next task.

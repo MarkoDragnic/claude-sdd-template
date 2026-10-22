@@ -40,11 +40,11 @@ YOU: select `figma`, choose Authenticate, approve in the browser. Same for `atla
 Enable tool permissions so Claude does not ask before every call:
 
 ```
-> merge .claude/permissions/figma.json, .claude/permissions/playwright.json
-  and .claude/permissions/jira.json into .claude/settings.json
+> merge .claude/permissions/figma.json, .claude/permissions/playwright.json,
+  .claude/permissions/jira.json and .claude/permissions/git.json into .claude/settings.json
 ```
 
-Approve the edit, then restart Claude Code (`/exit`, then `claude`). Skip `jira.json` if your spec is a PDF.
+Approve the edit, then restart Claude Code (`/exit`, then `claude`). Skip `jira.json` if your spec is a PDF, skip `git.json` if you do not want a commit per task.
 Read tools now run without prompts, write tools are blocked.
 
 6. Jira only, freeze the spec:
@@ -243,6 +243,7 @@ Human interventions and rework loops are counted automatically.
 ```
 Task 002 -> done
 Tests 9/9, all acceptance criteria covered. Logged, metrics copied.
+Committed a3f91c2: Task 002: Room data layer + filtering logic
 ```
 
 Nothing to do. Pure logic covered by tests closes itself.
@@ -276,6 +277,13 @@ When it comes back clean:
 ```
 > /approve-task 001 approve
 ```
+
+```
+Task 001 -> done
+Committed 7b20e4d: Task 001: Room list (desktop + mobile)
+```
+
+Commits happen only if `git.json` permissions are merged and the folder is a git repo. Claude never pushes: review `git log` and push yourself.
 
 ### Outline-only task
 

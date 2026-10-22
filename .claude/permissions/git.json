@@ -1,0 +1,13 @@
+{
+  "_description": "Git: allow Claude to stage and commit after each finished task. Push stays manual and is blocked. Merge both arrays into .claude/settings.json permissions.",
+  "permissions": {
+    "allow": [
+      "Bash(git status:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [
+      "Bash(git push:*)"
+    ]
+  }
+}
